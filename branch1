@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('build') {
+            steps {
+                git 'https://github.com/RakeshRed/JavaProject1.git'
+            }
+        }
+        stage("test"){
+            steps{
+                sh 'mvn clean install'
+            }
+        }
+        stage("Deploy"){
+            steps{
+                sshagent(['1234567']) { 
+                   
+   
+}
+            }
+        }
+    }
+}
